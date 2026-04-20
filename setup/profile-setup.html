@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>PeshoX Intelligence | Identity Setup</title>
+    <!-- Global assets -->
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="profile-setup.css">
+    <!-- Global JS -->
+    <script src="/assets/js/global.js" defer></script>
+    <!-- Page-specific JS -->
+    <script src="profile-setup.js" defer></script>
+</head>
+<body>
+    <div class="main-content setup-container">
+        <div class="setup-card">
+            <h1><i class="fas fa-id-card"></i> Identification Protocol</h1>
+
+            <!-- Progress Steps Indicator -->
+            <div class="progress-wrapper">
+                <div class="step-progress">
+                    <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+                </div>
+                <div class="step-labels">
+                    <span class="step-label" data-step="0">1. Identity</span>
+                    <span class="step-label" data-step="1">2. Platform</span>
+                    <span class="step-label" data-step="2">3. Invite</span>
+                    <span class="step-label" data-step="3">4. Mobile</span>
+                    <span class="step-label" data-step="4">5. Security</span>
+                    <span class="step-label" data-step="5">6. Legal</span>
+                </div>
+            </div>
+
+            <!-- Step 1: Identity (Name) -->
+            <div class="step-container active" id="step0">
+                <div class="step-icon"><i class="fas fa-user"></i></div>
+                <div class="bilingual">
+                    <span class="english-text">Enter your first and last name</span>
+                    <span class="urdu-text">اپنا پہلا اور آخری نام درج کریں</span>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="firstName" placeholder="First Name / پہلا نام">
+                    <input type="text" id="lastName" placeholder="Last Name / آخری نام" style="margin-top: 0.75rem;">
+                </div>
+                <button class="next-step btn-primary"><i class="fas fa-arrow-right"></i> Next</button>
+            </div>
+
+            <!-- Step 2: Aviator Platform (40+ options) -->
+            <div class="step-container" id="step1">
+                <div class="step-icon"><i class="fas fa-plane"></i></div>
+                <div class="bilingual">
+                    <span class="english-text">Select your Aviator platform</span>
+                    <span class="urdu-text">اپنا ایوی ایٹر پلیٹ فارم منتخب کریں</span>
+                </div>
+                <select id="aviatorSelect" size="8" class="platform-select">
+                    <!-- Populated by JS -->
+                </select>
+                <div class="step-buttons">
+                    <button class="prev-step btn-secondary"><i class="fas fa-arrow-left"></i> Back</button>
+                    <button class="next-step btn-primary">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Step 3: Invitation Link (optional) -->
+            <div class="step-container" id="step2">
+                <div class="step-icon"><i class="fas fa-link"></i></div>
+                <div class="bilingual">
+                    <span class="english-text">Invitation link (optional)</span>
+                    <span class="urdu-text">دعوتی لنک (اختیاری)</span>
+                </div>
+                <input type="url" id="inviteLink" placeholder="https://...">
+                <div class="step-buttons">
+                    <button class="prev-step btn-secondary"><i class="fas fa-arrow-left"></i> Back</button>
+                    <button class="skip-step btn-secondary">Skip <i class="fas fa-forward"></i></button>
+                    <button class="next-step btn-primary">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Step 4: Mobile Number (Pakistan strict) -->
+            <div class="step-container" id="step3">
+                <div class="step-icon"><i class="fas fa-phone"></i></div>
+                <div class="bilingual">
+                    <span class="english-text">Mobile number (include country code)</span>
+                    <span class="urdu-text">موبائل نمبر (کنٹری کوڈ کے ساتھ)</span>
+                </div>
+                <input type="tel" id="mobileNumber" placeholder="+92xxxxxxxxxx">
+                <div class="step-buttons">
+                    <button class="prev-step btn-secondary"><i class="fas fa-arrow-left"></i> Back</button>
+                    <button class="next-step btn-primary">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Step 5: Password & Confirm (min 8 chars, no incorrect loop) -->
+            <div class="step-container" id="step4">
+                <div class="step-icon"><i class="fas fa-lock"></i></div>
+                <div class="bilingual">
+                    <span class="english-text">Set a strong password (min 8 characters)</span>
+                    <span class="urdu-text">مضبوط پاس ورڈ بنائیں (کم از کم 8 حروف)</span>
+                </div>
+                <input type="password" id="password" placeholder="Password / پاس ورڈ">
+                <input type="password" id="confirmPassword" placeholder="Confirm Password / پاس ورڈ کی تصدیق" style="margin-top: 0.75rem;">
+                <div class="step-buttons">
+                    <button class="prev-step btn-secondary"><i class="fas fa-arrow-left"></i> Back</button>
+                    <button class="next-step btn-primary">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Step 6: Legal & Final -->
+            <div class="step-container" id="step5">
+                <div class="step-icon"><i class="fas fa-shield-alt"></i></div>
+                <div class="legal-box">
+                    <div class="bilingual">
+                        <span class="english-text">Your data is end‑to‑end encrypted. Our servers do not store or see your actual external account details. This environment is 100% secure.</span>
+                        <span class="urdu-text">آپ کا ڈیٹا اینڈ ٹو اینڈ انکرپٹڈ ہے۔ ہمارے سرورز آپ کی حقیقی اکاؤنٹ تفصیلات کو محفوظ یا نہیں دیکھتے۔ یہ ماحول 100% محفوظ ہے۔</span>
+                    </div>
+                </div>
+                <div class="terms-links">
+                    <i class="fas fa-file-alt"></i> <a href="/legal/privacy.html" target="_blank">Privacy Policy</a> &nbsp;|&nbsp;
+                    <a href="/legal/terms.html" target="_blank">Terms & Conditions</a>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="agreeCheckbox">
+                    <label for="agreeCheckbox">I confirm that I have read the Privacy Policy and Terms & Conditions.</label>
+                </div>
+                <div class="step-buttons">
+                    <button class="prev-step btn-secondary"><i class="fas fa-arrow-left"></i> Back</button>
+                    <button id="proceedBtn" class="btn-primary" disabled>PROCEED <i class="fas fa-check-circle"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+              </html>
