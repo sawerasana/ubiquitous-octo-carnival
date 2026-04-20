@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>PeshoX Intelligence | Radar Hub</title>
+    <!-- Global assets -->
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="dashboard.css">
+    <!-- Global JS -->
+    <script src="/assets/js/global.js" defer></script>
+    <!-- Page-specific JS -->
+    <script src="dashboard.js" defer></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Top Navigation Bar -->
+        <nav class="top-nav">
+            <div class="logo-area">
+                <i class="fas fa-chart-line"></i>
+                <span class="platform-name" id="platformName">Aviator</span>
+            </div>
+            <div class="user-area">
+                <span id="userNameDisplay" class="user-name">Pilot</span>
+                <span id="subscriptionBadge" class="badge free">FREE</span>
+                <button id="profileBtn" class="icon-btn" title="Profile">
+                    <i class="fas fa-user-circle"></i>
+                </button>
+                <button id="logoutBtn" class="icon-btn" title="Logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Two-Column Layout -->
+        <div class="main-dashboard">
+            <!-- Left: Radar Canvas -->
+            <div class="radar-column">
+                <div class="radar-card">
+                    <h3><i class="fas fa-satellite-dish"></i> Live Radar Scan</h3>
+                    <canvas id="radarCanvas" width="600" height="600"></canvas>
+                </div>
+            </div>
+
+            <!-- Right: Prediction Controls -->
+            <div class="controls-column">
+                <div class="multiplier-card">
+                    <div class="multiplier-display" id="multiplierDisplay">0.00x</div>
+                    <button id="predictBtn" class="predict-btn disabled">
+                        <i class="fas fa-chart-simple"></i> GET PREDICTION
+                    </button>
+                    <div class="status-text bilingual" id="predictStatus">
+                        <span class="english-text">Ready to Scan...</span>
+                        <span class="urdu-text">اسکین کے لیے تیار...</span>
+                    </div>
+                    <button id="inviteEarnBtn" class="invite-btn">
+                        <i class="fas fa-users"></i> INVITE & EARN
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom: Log Stream (200+ pre-loaded logs) -->
+        <div class="log-stream">
+            <div class="panel-header">
+                <i class="fas fa-list"></i> Signal Log
+            </div>
+            <div class="log-container" id="logContainer">
+                <!-- Logs will be dynamically loaded -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Centered confirmation modal for logout -->
+    <div id="logoutModal" class="modal-overlay" style="display: none;">
+        <div class="modal-container">
+            <h3><i class="fas fa-question-circle"></i> Confirm Logout</h3>
+            <div class="bilingual">
+                <span class="english-text">Are you sure you want to logout?</span>
+                <span class="urdu-text">کیا آپ واقعی لاگ آؤٹ کرنا چاہتے ہیں؟</span>
+            </div>
+            <div class="modal-buttons">
+                <button id="logoutCancelBtn" class="btn-secondary">Cancel</button>
+                <button id="logoutConfirmBtn" class="btn-primary">Logout</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
